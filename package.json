@@ -1,0 +1,44 @@
+{
+  "name": "othello",
+  "version": "0.1.0",
+  "description": "simple othello game with minimax strategy",
+  "author": "kpping",
+  "private": false,
+  "scripts": {
+    "compile": "tsc",
+    "lint": "tslint -p tsconfig.json -t stylish",
+    "test": "NODE_ENV=test jest",
+    "start": "node app/index.js"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/jest": "^23.1.1",
+    "@types/node": "^10.3.4",
+    "@types/prompt-sync": "^4.1.0",
+    "jest": "^23.1.0",
+    "ts-jest": "^22.4.6",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/*.spec.+(ts)"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "prompt-sync": "^4.1.6"
+  }
+}
