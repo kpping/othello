@@ -5,7 +5,6 @@ import { getBoard } from './get_board';
 import { getMovableList } from './get_movable_list';
 import { setNewGame } from './set_new_game';
 import { updateBoard } from './update_board';
-
 import {
     printBoard,
     printBoardStat,
