@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "simple othello game with minimax strategy",
   "author": "kpping",
+  "license": "MIT",
   "private": false,
   "scripts": {
     "compile": "tsc",
