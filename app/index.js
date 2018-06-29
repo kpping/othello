@@ -14,6 +14,7 @@ function getNextTurn(currentTurn) {
 }
 function game(board, turn, movableList) {
     view_1.printBoard(board);
+    view_1.printNewLine();
     view_1.printBoardStat(board);
     view_1.printTurn(turn);
     view_1.printMovableList(movableList);
@@ -28,11 +29,12 @@ function game(board, turn, movableList) {
         return { nextBoard, nextTurn };
     }
     else {
-        view_1.printError('\nINVALID MOVE\n');
+        view_1.printError('INVALID MOVE');
         return { nextBoard: board, nextTurn: turn };
     }
 }
 function main() {
+    view_1.printNewLine();
     let board = set_new_game_1.setNewGame(get_board_1.getBoard());
     let turn = discs_1.Discs.B;
     let movableList = get_movable_list_1.getMovableList(board, turn);
@@ -41,9 +43,13 @@ function main() {
         board = nextBoard;
         turn = nextTurn;
         movableList = get_movable_list_1.getMovableList(board, turn);
+        view_1.printNewLine();
     }
-    view_1.printError('\nNO MORE MOVE\n');
+    view_1.printRed('🎉 NO MORE MOVE 🎉');
+    view_1.printNewLine();
     view_1.printBoard(board);
+    view_1.printNewLine();
     view_1.printBoardStat(board);
+    view_1.printNewLine();
 }
 main();

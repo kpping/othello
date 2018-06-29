@@ -11,6 +11,8 @@ import {
     printBoardStat,
     printError,
     printMovableList,
+    printNewLine,
+    printRed,
     printTurn,
     prompt,
 } from './view';
@@ -25,6 +27,7 @@ function getNextTurn(currentTurn: Discs.B | Discs.W) {
 
 function game(board: Board, turn: Discs.B | Discs.W, movableList: IBoardIndex[]) {
     printBoard(board);
+    printNewLine();
     printBoardStat(board);
     printTurn(turn);
     printMovableList(movableList);
@@ -42,13 +45,15 @@ function game(board: Board, turn: Discs.B | Discs.W, movableList: IBoardIndex[])
 
         return { nextBoard, nextTurn };
     } else {
-        printError('\nINVALID MOVE\n');
+        printError('INVALID MOVE');
 
         return { nextBoard: board, nextTurn: turn };
     }
 }
 
 function main() {
+    printNewLine();
+
     let board = setNewGame(getBoard());
     let turn = Discs.B;
     let movableList = getMovableList(board, turn);
@@ -59,11 +64,15 @@ function main() {
         board = nextBoard;
         turn = nextTurn as Discs.B | Discs.W;
         movableList = getMovableList(board, turn);
+        printNewLine();
     }
 
-    printError('\nNO MORE MOVE\n');
+    printRed('🎉 NO MORE MOVE 🎉');
+    printNewLine();
     printBoard(board);
+    printNewLine();
     printBoardStat(board);
+    printNewLine();
 }
 
 main();
