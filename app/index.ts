@@ -63,6 +63,16 @@ function main() {
         board = nextBoard;
         turn = nextTurn as Discs.B | Discs.W;
         movableList = getMovableList(board, turn);
+
+        // pass turn
+        if (movableList.length === 0) {
+            printNewLine();
+            printRed('😝 SKIP 😝');
+
+            turn = getNextTurn(turn);
+            movableList = getMovableList(board, turn);
+        }
+
         printNewLine();
     }
 

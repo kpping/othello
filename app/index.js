@@ -43,6 +43,13 @@ function main() {
         board = nextBoard;
         turn = nextTurn;
         movableList = get_movable_list_1.getMovableList(board, turn);
+        // pass turn
+        if (movableList.length === 0) {
+            view_1.printNewLine();
+            view_1.printRed('😝 SKIP 😝');
+            turn = getNextTurn(turn);
+            movableList = get_movable_list_1.getMovableList(board, turn);
+        }
         view_1.printNewLine();
     }
     view_1.printRed('🎉 NO MORE MOVE 🎉');
