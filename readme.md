@@ -10,6 +10,6 @@ yarn start
 # Todo
 1. Implement Bot Player
 
-2. Implement `getBoardScore(board: Board, ourDisc: Disc.B | ourDisc.W): number`
+2. Implement `getBoardScore(board: Board, ourDiscs: Discs.B | ourDiscs.W): number`
 
 3. Implement MiniMax Strategy for Bot Player
