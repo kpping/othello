@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "../custom_types/*.d.ts",
+    "./custom_types/*.d.ts",
+    "./src/**/*.spec.ts"
+  ],
+  "references": [{ "path": "./tsconfig-onlyts.json" }]
+}

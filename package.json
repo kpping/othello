@@ -1,45 +1,42 @@
 {
   "name": "othello",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "simple othello game with minimax strategy",
   "author": "kpping",
   "license": "MIT",
   "private": false,
+  "main": "./lib/index.js",
   "scripts": {
-    "compile": "tsc",
-    "lint": "tslint -p tsconfig.json -t stylish",
-    "test": "NODE_ENV=test jest",
-    "start": "node app/index.js"
-  },
-  "devDependencies": {
-    "@types/chalk": "^2.2.0",
-    "@types/jest": "^23.1.1",
-    "@types/node": "^10.3.4",
-    "@types/prompt-sync": "^4.1.0",
-    "jest": "^23.1.0",
-    "ts-jest": "^22.4.6",
-    "tslint": "^5.10.0",
-    "typescript": "^2.9.2"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
-    "transform": {
-      "^.+\\.(ts)$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.json"
-      }
-    },
-    "testMatch": [
-      "**/*.spec.+(ts)"
-    ]
+    "start": "node ./lib/index.js",
+    "tsc:onlyts": "tsc -b tsconfig-onlyts.json",
+    "tsc:spects": "tsc -b tsconfig-spects.json",
+    "compile": "yarn tsc:onlyts && yarn tsc:spects",
+    "lint": "eslint --ext .ts ./src --fix",
+    "prettier:config": "prettier --no-config --write \"./*.{json,yml}\"",
+    "prettier:ts": "prettier --write \"./src/**/*.ts\"",
+    "prettier": "yarn prettier:config --loglevel warn && yarn prettier:ts --loglevel warn",
+    "test": "jest --passWithNoTests",
+    "build": "yarn prettier && yarn lint && yarn compile && yarn test"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
-    "prompt-sync": "^4.1.6"
+    "chalk": "^2.4.2",
+    "prompt-sync": "^4.1.7"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/chalk": "^2.2.0",
+    "@types/jest": "^24.0.21",
+    "@types/node": "^10",
+    "@types/prompt-sync": "^4.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
   }
 }
